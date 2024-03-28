@@ -16,8 +16,12 @@ let pokemonHeight = "";
 
 //Starting at the first item, display the Pokemon information and then move to the next item
 for (let i = 0; i < pokemonList.length;) {
-  pokemonName = pokemonList[i].name;
-  pokemonHeight = pokemonList[i].height;
-  document.write(pokemonName + " (height: " + pokemonHeight + ")<br>");
-  i++;
-}
+    pokemonName = pokemonList[i].name;
+    pokemonHeight = pokemonList[i].height;
+    if (pokemonHeight >= 2){
+      document.write(pokemonName + " (height: " + pokemonHeight + ") -Wow, that’s big!<br>");
+    }else {
+      document.write(pokemonName + " (height: " + pokemonHeight + ")<br>");
+    }
+    i++;
+  }

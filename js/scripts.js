@@ -9,3 +9,15 @@ let pokemonList = [
     {name: 'Wartortle', height: 1, types: ['water']},
     {name: 'Blastoise', height: 1.6, types: ['water']},
 ];
+
+//Initialize an empty string variables for displaying the Pokemon information
+let pokemonName = "";
+let pokemonHeight = "";
+
+//Starting at the first item, display the Pokemon information and then move to the next item
+for (let i = 0; i < pokemonList.length;) {
+  pokemonName = pokemonList[i].name;
+  pokemonHeight = pokemonList[i].height;
+  document.write(pokemonName + " (height:" + pokemonHeight + ")<br>");
+  i++;
+}

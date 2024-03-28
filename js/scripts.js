@@ -18,6 +18,6 @@ let pokemonHeight = "";
 for (let i = 0; i < pokemonList.length;) {
   pokemonName = pokemonList[i].name;
   pokemonHeight = pokemonList[i].height;
-  document.write(pokemonName + " (height:" + pokemonHeight + ")<br>");
+  document.write(pokemonName + " (height: " + pokemonHeight + ")<br>");
   i++;
 }

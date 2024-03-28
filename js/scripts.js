@@ -18,6 +18,7 @@ let pokemonHeight = "";
 for (let i = 0; i < pokemonList.length;) {
     pokemonName = pokemonList[i].name;
     pokemonHeight = pokemonList[i].height;
+    //If pokemon has a height of 2m or more, comment that it is big
     if (pokemonHeight >= 2){
       document.write(pokemonName + " (height: " + pokemonHeight + ") -Wow, that’s big!<br>");
     }else {

@@ -10,19 +10,7 @@ let pokemonList = [
     {name: 'Blastoise', height: 1.6, types: ['water']},
 ];
 
-//Initialize an empty string variables for displaying the Pokemon information
-let pokemonName = "";
-let pokemonHeight = "";
-
-//Starting at the first item, display the Pokemon information and then move to the next item
-for (let i = 0; i < pokemonList.length;) {
-    pokemonName = pokemonList[i].name;
-    pokemonHeight = pokemonList[i].height;
-    //If pokemon has a height of 2m or more, comment that it is big
-    if (pokemonHeight >= 2){
-      document.write(pokemonName + " (height: " + pokemonHeight + ") -Wow, that’s big!<br>");
-    }else {
-      document.write(pokemonName + " (height: " + pokemonHeight + ")<br>");
-    }
-    i++;
-  }
+//Write out the name and height of each pokemon in the pokemonList array
+pokemonList.forEach( pokemon => {
+  document.write(pokemon.name + " (height: " + pokemon.height + ")<br>");
+  });

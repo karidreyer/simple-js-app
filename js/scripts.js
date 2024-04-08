@@ -1,4 +1,6 @@
-let pokemonList = [
+let pokemonRepository = (function () {
+  
+  let pokemonList = [
     {name: 'Bulbasaur', height: 0.7, types: ['grass','poison']},
     {name: 'Ivysaur', height: 1, types: ['grass','poison']},
     {name: 'Venusaur', height: 2, types: ['grass','poison']},
@@ -8,9 +10,22 @@ let pokemonList = [
     {name: 'Squirtle', height: 0.5, types: ['water']},
     {name: 'Wartortle', height: 1, types: ['water']},
     {name: 'Blastoise', height: 1.6, types: ['water']},
-];
+  ];
+
+  function getAll () {
+    return pokemonList
+  }
+
+  function add (pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  return {
+    getAll: getAll,
+    add: add
+  };
+
+})();
 
 //Write out the name and height of each pokemon in the pokemonList array
-pokemonList.forEach( pokemon => {
-  document.write(pokemon.name + " (height: " + pokemon.height + ")<br>");
-  });
+pokemonRepository.getAll().forEach( pokemon => document.write(pokemon.name + " (height: " + pokemon.height + ")<br>"))

@@ -27,13 +27,5 @@ let pokemonRepository = (function () {
 
 })();
 
-pokemonRepository.getAll().forEach(function(pokemon) {
-  let pokemonList = document.querySelector('.pokemon-list');
-  let listItem = document.createElement('li');
-  let button = document.createElement('button');
-  button.innerText = pokemon.name;
-  button.classList.add('button-class');
-  listItem.appendChild(button);
-  pokemonList.appendChild(listItem);
-
-});
+//Write out the name and height of each pokemon in the pokemonList array
+pokemonRepository.getAll().forEach( pokemon => document.write(pokemon.name + " (height: " + pokemon.height + ")<br>"))

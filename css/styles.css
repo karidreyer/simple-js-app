@@ -29,7 +29,8 @@ h1 {
   font-weight: var(--medium-font-weight);
 }
 
-button {
+button,
+.button-class {
   background-color: var(--primary-color); 
   border: none;
   padding: 16px 32px;

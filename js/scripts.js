@@ -38,11 +38,7 @@ let pokemonRepository = (function () {
     pokemonList.appendChild(listItem);
   }
 
-   //Function to display Pokemon Details
-   function showDetails(pokemon) {
-    console.log(pokemon);
-  }
-
+  //Function to load the lsit of Pokemon from API
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -59,11 +55,33 @@ let pokemonRepository = (function () {
     })
   }
 
+  //Function to load further details of a pokemon 
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  //Function to display Pokemon Details
+  function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
+
   return {
     getAll: getAll,
     add: add,
     addListItem: addListItem,
-    loadList: loadList
+    loadList: loadList,
+    loadDetails: loadDetails
   }
 })();
 

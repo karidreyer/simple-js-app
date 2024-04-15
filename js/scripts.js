@@ -15,27 +15,18 @@ let pokemonRepository = (function () {
 
   //Function to create a list item in the DOM for each Pokemon
   function addListItem (pokemon) {
+    let pokemonList = document.querySelector('.pokemon-list'); //Identify a variable for the ul "pokemon-list" in index.html
+    let listItem = document.createElement('li'); //Create list item element
 
-    //Identify a variable for the ul "pokemon-list" in index.html
-    let pokemonList = document.querySelector('.pokemon-list');
-    
-    //Create list item element
-    let listItem = document.createElement('li');
-
-    //Create a button with the pokemon's name and give it the class "button" for CSS styling
-    let button = document.createElement('button');
+    let button = document.createElement('button'); //Create a button with the pokemon's name and give it the class "button" for CSS styling
     button.innerText = pokemon.name;
     button.classList.add('button-class');
-    //Add event listener to button, call "showDetails" function when clicked
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function() { //Add event listener to button, call "showDetails" function when clicked
       showDetails(pokemon);
     });
 
-    //Append one of the above buttons to each of the above list items
-    listItem.appendChild(button);
-
-    //Append the list item to the DOM within the ul "pokemon-list"
-    pokemonList.appendChild(listItem);
+    listItem.appendChild(button); //Append one of the above buttons to each of the above list items
+    pokemonList.appendChild(listItem); //Append the list item to the DOM within the ul "pokemon-list"
   }
 
   //Function to load the lsit of Pokemon from API

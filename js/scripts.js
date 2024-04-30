@@ -18,10 +18,12 @@ let pokemonRepository = (function () {
   function addListItem (pokemon) {
     let pokemonList = document.querySelector('.pokemon-list'); //Identify a variable for the ul "pokemon-list" in index.html
     let listItem = document.createElement('li'); //Create list item element
+    listItem.classList.add('list-group-item');
 
     let button = document.createElement('button'); //Create a button with the pokemon's name and give it the class "button" for CSS styling
     button.innerText = pokemon.name;
-    button.classList.add('button-class');
+    button.classList.add('btn');
+    button.classList.add('btn-outline-dark');
     button.addEventListener('click', function() { //Add event listener to button, call "showDetails" function when clicked
       showDetails(pokemon);
     });

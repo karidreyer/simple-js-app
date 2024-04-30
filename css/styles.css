@@ -1,12 +1,6 @@
 /* || GENERAL STYLES */
 
 :root {
-  --primary-color: lightgrey;
-  --regular-font-weight: 400;
-  --medium-font-weight: 500;
-  --regular-font-size: 16px;
-  --medium-font-size: 20px;
-  --medium-font-size-reduced: 18px;
   --normal-grid-gap: 20px;
   --normal-grid-gap-reduced: 10px;
 }
@@ -16,29 +10,12 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  font-weight: var(--regular-font-weight);
-  font-size: var(--regular-font-size);
-  line-height: 1.6;
-  font-style: normal;
   padding: 30px;
 }
 
-h1 {
-  font-size: var(--medium-font-size);
-  font-weight: var(--medium-font-weight);
-}
-
-.button-class {
-  background-color: var(--primary-color); 
-  border: none;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
+.btn {
   width: 100%;
   cursor: pointer;
-  font-family: inherit;
-  text-decoration: none;
   padding: 20px;
   transition: opacity 0.2s;
   text-transform: capitalize;

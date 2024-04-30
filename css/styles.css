@@ -85,6 +85,28 @@ button:hover {
   margin-bottom: 0;
 }
 
+#back-to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#back-to-top-btn:hover {
+  background-color: #555;
+}
+
 /* || MEDIA QUERIES FOR RESPONSIVE DESIGN */
 
 @media all and (max-width: 500px) {

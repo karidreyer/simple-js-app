@@ -58,8 +58,10 @@ let pokemonRepository = (function () {
       return response.json();
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
+      item.height = details.height / 10; //Convert height to meters
+      item.weight = details.weight / 10; //Convert weight to kilograms
       item.types = details.types;
+      item.abilities = details.abilities;
     }).catch(function (e) {
       console.error(e);
     });
@@ -84,10 +86,14 @@ let pokemonRepository = (function () {
   
       let pokemonHeight = document.createElement('p');
       pokemonHeight.textContent = 'Height: ' + item.height + 'm';
+
+      let pokemonWeight = document.createElement('p');
+      pokemonWeight.textContent = 'Weight: ' + item.weight + 'kg';
   
       modalTitle.appendChild(pokemonName);
       modalBody.appendChild(pokemonImage);
       modalBody.appendChild(pokemonHeight);
+      modalBody.appendChild(pokemonWeight);
   
       $('#pokemonDetailsModal').modal('show');
     });

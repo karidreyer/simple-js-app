@@ -109,16 +109,17 @@ let pokemonRepository = (function () {
   }
 })();
 
-//Code to create each pokemon list item in the DOM by calling the getAll, addListItem, and loadList functions
+//Create each pokemon list item in the DOM by calling the getAll, addListItem, and loadList functions
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
 })
 
-//Code for "Back to top" button functionality
+//Create "Back to top" button
 let backToTopBtn = document.getElementById('back-to-top-btn');
 
+//Display "Back to top" button when user scrolls down the page. Hide it when they are at the top.
 window.addEventListener('scroll', () => {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     backToTopBtn.style.display = 'block';
@@ -127,8 +128,8 @@ window.addEventListener('scroll', () => {
   }
 });
 
+//Move back to the top of the page when the user clicks on the "Back to top" button
 backToTopBtn.addEventListener('click', () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
-

@@ -10,6 +10,9 @@
   padding: 20px;
   transition: opacity 0.2s;
   text-transform: capitalize;
+  font-family: "Inconsolata", monospace;
+  font-weight: 500;
+  font-style: normal;
 }
 
 button:hover {
@@ -24,6 +27,12 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
   }
+}
+
+.navbar-brand {
+  font-family: "Inconsolata", monospace;
+  font-weight: 900;
+  font-style: normal;
 }
 
 #modalTitle {

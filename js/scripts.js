@@ -57,7 +57,7 @@ let pokemonRepository = (function () {
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
+      item.imageUrl = details.sprites.other.dream_world.front_default;
       item.height = details.height / 10; //Convert height to meters
       item.weight = details.weight / 10; //Convert weight to kilograms
       item.types = details.types;

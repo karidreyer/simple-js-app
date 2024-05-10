@@ -110,11 +110,13 @@ let pokemonRepository = (function () {
 })();
 
 //Create each pokemon list item in the DOM by calling the getAll, addListItem, and loadList functions
-pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
+window.addEventListener("DOMContentLoaded", function () { //Wait for content to load before displaying for better user experience
+  pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+      pokemonRepository.addListItem(pokemon);
+    });
   });
-})
+});
 
 //Create "Back to top" button
 let backToTopBtn = document.getElementById('back-to-top-btn');

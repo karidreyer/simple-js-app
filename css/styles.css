@@ -29,14 +29,24 @@ button:hover {
   }
 }
 
+.list-group-item {
+  padding: 0;
+}
+
 .navbar-brand {
   font-family: "Inconsolata", monospace;
   font-weight: 900;
   font-style: normal;
 }
 
-#modalTitle {
+.modal-content{
+  font-family: "Inconsolata", monospace;
+  font-weight: 700;
+}
+
+.modal-title {
   text-transform: capitalize;
+  font-weight: 900;
 }
 
 #back-to-top-btn {

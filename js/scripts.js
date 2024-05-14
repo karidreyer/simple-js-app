@@ -1,7 +1,8 @@
 let pokemonRepository = (function () {
 
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let prevURL = null;
+  let nextURL = null;
 
   // Function to make a list of all Pokemon in the repository
   function getAll () {
@@ -26,6 +27,7 @@ let pokemonRepository = (function () {
     button.classList.add('btn', 'btn-outline-dark'); //Add Bootstrap utility classes
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemonDetailsModal');
+    
     button.addEventListener('click', function() { //Add event listener to button, call "showDetails" function when clicked
       showDetails(pokemon);
     });
@@ -33,12 +35,27 @@ let pokemonRepository = (function () {
     listItem.appendChild(button); //Append one of the above buttons to each of the above list items
     pokemonList.appendChild(listItem); //Append the list item to the DOM within the ul "pokemon-list"
   }
+  
 
-  //Function to load the lsit of Pokemon from API
-  function loadList() {
-    return fetch(apiUrl).then(function (response) {
+  //Function to load the list of Pokemon from API
+  function loadList(apiURL) {
+    return fetch(apiURL).then(function (response) {
       return response.json();
     }).then(function (json) {
+      prevURL = json.previous;
+      nextURL = json.next;
+
+      //Add disabled attribute if the URLs are null (for pagination)
+      let prevBtn = document.getElementById('prev-btn')
+      let nextBtn = document.getElementById('next-btn')
+      !prevURL ? prevBtn.setAttribute('disabled', '') : prevBtn.removeAttribute('disabled');
+      !nextURL ? nextBtn.setAttribute('disabled', '') : nextBtn.removeAttribute('disabled');
+
+      //Clean up UI and Array (for pagination)
+      let pokemonListUI = document.querySelector('.pokemon-list');
+      pokemonListUI.innerHTML = '';
+      pokemonList.length = 0;
+
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -51,7 +68,7 @@ let pokemonRepository = (function () {
     })
   }
 
-  //Function to load further details of a pokemon 
+  //Function to load further details of a pokemon for modal use
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -99,19 +116,57 @@ let pokemonRepository = (function () {
     });
   }
 
+  function getNextUrl() {
+    return nextURL
+  }
+
+  function getPrevUrl() {
+    return prevURL
+  }
+
   return {
-    getAll: getAll,
-    add: add,
-    addListItem: addListItem,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
+    getAll,
+    add,
+    addListItem,
+    loadList,
+    loadDetails,
+    showDetails,
+    getNextUrl,
+    getPrevUrl
   }
 })();
 
+const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=24';
+
+
 //Create each pokemon list item in the DOM by calling the getAll, addListItem, and loadList functions
-window.addEventListener("DOMContentLoaded", function () { //Wait for content to load before displaying for better user experience
-  pokemonRepository.loadList().then(function() {
+window.addEventListener('DOMContentLoaded', function () { //Wait for content to load before displaying for better user experience
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+
+  prevBtn.addEventListener('click', () => {
+    const prevURL = pokemonRepository.getPrevUrl();
+    if (prevURL) {
+      pokemonRepository.loadList(prevURL).then(function() {
+        pokemonRepository.getAll().forEach(function(pokemon) {
+          pokemonRepository.addListItem(pokemon);
+        });
+      });
+    }
+  })
+
+  nextBtn.addEventListener('click', () => {
+    const nextURL = pokemonRepository.getNextUrl();
+    if (nextURL) {
+      pokemonRepository.loadList(nextURL).then(function() {
+        pokemonRepository.getAll().forEach(function(pokemon) {
+          pokemonRepository.addListItem(pokemon);
+        });
+      });
+    }
+  })
+
+  pokemonRepository.loadList(API_URL).then(function() {
     pokemonRepository.getAll().forEach(function(pokemon) {
       pokemonRepository.addListItem(pokemon);
     });

@@ -1,42 +1,29 @@
-# Pokedex App
+# Pokédex - A Simple JS App
 
 ## Overview
 
-The Pokedex App is a web application designed to display a list of Pokémon fetched from the PokeAPI. Users can click on a Pokémon from the list to view its details, including its height and types.
+This project is a web-based Pokédex application is a web application designed to display a list of Pokémon fetched from the PokeAPI. Users can click on a Pokémon from the list to view its details.
 
 ## Features
 
-- Display a list of Pokémon from the PokeAPI.
-- Show detailed information about a Pokémon when clicked.
-- Responsive design for various screen sizes.
+- **Pokemon Repository:** A local repository is maintained to store the details of each Pokémon fetched from the PokeAPI.
+- **Pagination:** The application fetches and displays 24 Pokemon at a time. The user can click the "Next" and "Prev" buttons to display further pokémon.
+- **Pokemon Details:** Clicking on a Pokemon displays a modal with the image and some basic information about the Pokémon.
+- **Back-to-top Button:** A back-to-top button is provided for easy navigation.
+
 
 ## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
+- Bootstrap
+- Prettier and ESLint
 
 ## API
 
-The app uses the PokeAPI to fetch Pokémon data. The API endpoint used is [https://pokeapi.co/api/v2/pokemon/?limit=150](https://pokeapi.co/api/v2/pokemon/?limit=150).
-
-## Setup and Installation
-
-1. Clone the repository:
-
-\`\`\`bash
-git clone https://github.com/your-username/pokedex-app.git
-\`\`\`
-
-2. Navigate to the project directory:
-
-\`\`\`bash
-cd pokedex-app
-\`\`\`
-
-3. Open the `index.html` file in your web browser to view the app.
+The app uses the PokeAPI to fetch Pokémon data. The API endpoint used is [https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/).
 
 ## Usage
 
-1. Upon loading the app, you will see a list of Pokémon.
-2. Click on a Pokémon from the list to view its details.
+To use the application, open the index.html file in your web browser. You will see a list of Pokémon. Click on a Pokémon from the list to view its details.

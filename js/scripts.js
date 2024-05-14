@@ -84,37 +84,41 @@ let pokemonRepository = (function () {
     });
   }
 
-  //Function to display Pokemon Details in a modal
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      let modalTitle = document.querySelector('.modal-title');
-      let modalBody = document.querySelector('.modal-body');
-  
-      // Clear existing content
-      modalTitle.innerHTML = '';
-      modalBody.innerHTML = '';
-  
-      let pokemonName = document.createElement('h5');
-      pokemonName.textContent = item.name;
-  
-      let pokemonImage = document.createElement('img');
-      pokemonImage.src = item.imageUrl;
-      pokemonImage.alt = item.name;
-  
-      let pokemonHeight = document.createElement('p');
-      pokemonHeight.textContent = 'Height: ' + item.height + 'm';
+// Function to display Pokemon Details in a modal
+function showDetails(item) {
+  pokemonRepository.loadDetails(item).then(function () {
+    let modalTitle = document.querySelector('.modal-title');
+    let modalBody = document.querySelector('.modal-body');
 
-      let pokemonWeight = document.createElement('p');
-      pokemonWeight.textContent = 'Weight: ' + item.weight + 'kg';
-  
-      modalTitle.appendChild(pokemonName);
-      modalBody.appendChild(pokemonImage);
-      modalBody.appendChild(pokemonHeight);
-      modalBody.appendChild(pokemonWeight);
-  
-      $('#pokemonDetailsModal').modal('show');
-    });
-  }
+    // Clear existing content
+    modalTitle.innerHTML = '';
+    modalBody.innerHTML = '';
+
+    // Create elements
+    let pokemonName = document.createElement('h5');
+    pokemonName.textContent = item.name;
+
+    let pokemonImage = document.createElement('img');
+    pokemonImage.src = item.imageUrl;
+    pokemonImage.alt = item.name;
+    pokemonImage.classList.add('modal-image'); // Add a class for styling
+
+    let pokemonHeight = document.createElement('p');
+    pokemonHeight.textContent = 'Height: ' + item.height + 'm';
+
+    let pokemonWeight = document.createElement('p');
+    pokemonWeight.textContent = 'Weight: ' + item.weight + 'kg';
+
+    // Append elements to modal body
+    modalTitle.appendChild(pokemonName);
+    modalBody.appendChild(pokemonImage);
+    modalBody.appendChild(pokemonHeight);
+    modalBody.appendChild(pokemonWeight);
+
+    // Show modal using Bootstrap jQuery
+    $('#pokemonDetailsModal').modal('show');
+  });
+}
 
   function getNextUrl() {
     return nextURL

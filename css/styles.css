@@ -37,12 +37,6 @@ h5 {
   padding: 0;
 }
 
-.navbar-brand {
-  font-family: "Inconsolata", monospace;
-  font-weight: 900;
-  font-style: normal;
-}
-
 .modal-content{
   font-family: "Inconsolata", monospace;
   font-weight: 700;
@@ -50,6 +44,25 @@ h5 {
 
 .modal-title {
   text-transform: capitalize;
+}
+
+.navbar-brand {
+  font-family: "Inconsolata", monospace;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.page-btn {
+  font-family: "Inconsolata", monospace;
+}
+.page-btn-container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  margin-top: 20px; /* Add space between content and buttons */
+}
+
+.page-btn-container button {
+  margin-right: 10px; /* Add space between the buttons */
 }
 
 #back-to-top-btn {

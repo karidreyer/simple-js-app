@@ -21,50 +21,6 @@ button:hover {
   text-decoration: none;
 }
 
-@supports (display:grid) {
-  .pokemon-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-  }
-}
-
-h5 {
-  font-weight: 800;
-}
-
-.list-group-item {
-  padding: 0;
-}
-
-.modal-content{
-  font-family: "Inconsolata", monospace;
-  font-weight: 700;
-}
-
-.modal-title {
-  text-transform: capitalize;
-}
-
-.navbar-brand {
-  font-family: "Inconsolata", monospace;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.page-btn {
-  font-family: "Inconsolata", monospace;
-}
-.page-btn-container {
-  display: flex;
-  justify-content: center; /* Center items horizontally */
-  margin-top: 20px; /* Add space between content and buttons */
-}
-
-.page-btn-container button {
-  margin-right: 10px; /* Add space between the buttons */
-}
-
 #back-to-top-btn {
   display: none;
   position: fixed;
@@ -85,6 +41,71 @@ h5 {
 
 #back-to-top-btn:hover {
   background-color: #555;
+}
+
+.content-container {
+  margin-top: 20px; /* Adjust the value as needed */
+}
+
+h5 {
+  font-weight: 800;
+}
+
+.list-group-item {
+  padding: 0;
+}
+
+.modal-content{
+  font-family: "Inconsolata", monospace;
+  font-weight: 700;
+  border: 2px solid #000;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-body img {
+  max-width: 200px; /* Set a maximum width for the image */
+  display: block;
+  margin: 0 auto; /* Center the image */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  text-transform: capitalize;
+}
+
+.navbar-brand {
+  font-family: "Inconsolata", monospace;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.page-btn {
+  font-family: "Inconsolata", monospace;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.page-btn-container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  margin-top: 20px; /* Add space between content and buttons */
+}
+
+.page-btn-container button {
+  margin-right: 10px; /* Add space between the buttons */
+}
+
+@supports (display:grid) {
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
 }
 
 /* || MEDIA QUERIES FOR RESPONSIVE DESIGN */

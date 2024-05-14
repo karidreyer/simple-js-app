@@ -29,6 +29,10 @@ button:hover {
   }
 }
 
+h5 {
+  font-weight: 800;
+}
+
 .list-group-item {
   padding: 0;
 }
@@ -46,7 +50,6 @@ button:hover {
 
 .modal-title {
   text-transform: capitalize;
-  font-weight: 900;
 }
 
 #back-to-top-btn {
